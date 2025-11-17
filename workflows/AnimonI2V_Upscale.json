@@ -1,0 +1,461 @@
+{
+  "id": "ff48be81-5283-4cd2-9848-7ba39ddd4681",
+  "revision": 0,
+  "last_node_id": 9,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        177.05393799837347,
+        -297.2169554773914
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MarkdownNote",
+      "pos": [
+        158.16782229589452,
+        -670.8153852294572
+      ],
+      "size": [
+        303.7249586776859,
+        88
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "About API Key",
+      "properties": {},
+      "widgets_values": [
+        "Visit [Platform Animon Website](https://platform-test.animon.ai/console/api-key) to obtain your API key.\n\n**IMPORTANT**: Do **NOT** share your API key when sharing your workflow!"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "AnimonUploadVideoFromBytesNode",
+      "pos": [
+        1058.3546818000266,
+        -435.80224473359084
+      ],
+      "size": [
+        203.82578125,
+        46
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "animon_key",
+          "type": "ANIMON_KEY",
+          "link": 5
+        },
+        {
+          "name": "video_bytes",
+          "type": "ANIMON_BYTES",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO_ID",
+          "type": "ANIMON_VIDEO_ID",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonUploadVideoFromBytesNode"
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 8,
+      "type": "AnimonUpscaleVideoNode",
+      "pos": [
+        1031.734681800025,
+        -317.2222447335907
+      ],
+      "size": [
+        270,
+        102
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "animon_key",
+          "type": "ANIMON_KEY",
+          "link": 6
+        },
+        {
+          "name": "video_id",
+          "type": "ANIMON_VIDEO_ID",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "VIDEO_BYTES",
+          "type": "ANIMON_BYTES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonUpscaleVideoNode"
+      },
+      "widgets_values": [
+        "anisr",
+        "1080P"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 9,
+      "type": "MarkdownNote",
+      "pos": [
+        1001.4846818000252,
+        -136.93224473359052
+      ],
+      "size": [
+        329.20000000000005,
+        115
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Upscale Node",
+      "properties": {},
+      "widgets_values": [
+        "## Upscale the Video to 1080P\n\nThe input video must meet the following requirements:\n\n- Resolution must be **lower than 1080P**.\n- Total frame count must be **no more than 360 frames**."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 6,
+      "type": "MarkdownNote",
+      "pos": [
+        555.4746818000258,
+        -160.4522447335903
+      ],
+      "size": [
+        404.78999999999996,
+        161.11
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Image to Video Node",
+      "properties": {},
+      "widgets_values": [
+        "## anicut-1-5 and anicut-pro-1-5\n\n- Support up to **81 frames** for resolutions **480P** and **720P**.\n\n## anicut-pro-1-6\n\n- Supports up to **81 frames** for **480P**, **720P** and **1080P**.\n\nFor more information, please refer to the [capability map](https://platform-test.animon.ai/document/capability-map)."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "AnimonImageToVideoNode",
+      "pos": [
+        554.1539379983726,
+        -437.47447613854865
+      ],
+      "size": [
+        400,
+        228
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "animon_key",
+          "type": "ANIMON_KEY",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": []
+        },
+        {
+          "name": "VIDEO_BYTES",
+          "type": "ANIMON_BYTES",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonImageToVideoNode"
+      },
+      "widgets_values": [
+        "anicut-1-5",
+        "Dance",
+        "480P",
+        42,
+        "randomize",
+        81
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 4,
+      "type": "SaveVideo",
+      "pos": [
+        1412.5339379983732,
+        -450.9344761385481
+      ],
+      "size": [
+        380.1099999999999,
+        478.1099999999999
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "AnimonI2VSR",
+        "mp4",
+        "h264"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "AnimonKeyNode",
+      "pos": [
+        179.47393799837366,
+        -471.4844761385487
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ANIMON_KEY",
+          "type": "ANIMON_KEY",
+          "links": [
+            1,
+            5,
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonKeyNode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "ANIMON_KEY"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      1,
+      "IMAGE"
+    ],
+    [
+      4,
+      2,
+      1,
+      7,
+      1,
+      "ANIMON_BYTES"
+    ],
+    [
+      5,
+      1,
+      0,
+      7,
+      0,
+      "ANIMON_KEY"
+    ],
+    [
+      6,
+      1,
+      0,
+      8,
+      0,
+      "ANIMON_KEY"
+    ],
+    [
+      7,
+      7,
+      0,
+      8,
+      1,
+      "ANIMON_VIDEO_ID"
+    ],
+    [
+      8,
+      8,
+      0,
+      4,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "API Key",
+      "bounding": [
+        141.96393799837364,
+        -564.6544761385484,
+        337.23,
+        163.48999999999995
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "First Frame Image",
+      "bounding": [
+        134.70393799837345,
+        -384.33695547739165,
+        350.54,
+        436.95
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Generate",
+      "bounding": [
+        511.2646818000258,
+        -530.6622447335902,
+        839.0000000000001,
+        550.95
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Save Video",
+      "bounding": [
+        1377.0646818000264,
+        -544.9122447335899,
+        440.01,
+        578.76
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917354,
+      "offset": [
+        30.64531819997353,
+        797.5922447335903
+      ]
+    },
+    "frontendVersion": "1.28.8",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

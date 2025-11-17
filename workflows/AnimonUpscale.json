@@ -1,0 +1,339 @@
+{
+  "id": "0c483155-3d97-49cd-9b63-76bdf12c7a48",
+  "revision": 0,
+  "last_node_id": 8,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "MarkdownNote",
+      "pos": [
+        384.25831816366247,
+        -501.31042655177265
+      ],
+      "size": [
+        303.7249586776859,
+        88
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "About API Key",
+      "properties": {},
+      "widgets_values": [
+        "Visit [Platform Animon Website](https://platform-test.animon.ai/console/api-key) to obtain your API key.\n\n**IMPORTANT**: Do **NOT** share your API key when sharing your workflow!"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "MarkdownNote",
+      "pos": [
+        1213.3446818000261,
+        -467.5322447335912
+      ],
+      "size": [
+        329.20000000000005,
+        115
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Upscale Node",
+      "properties": {},
+      "widgets_values": [
+        "## Upscale the Video to 1080P\n\nThe input video must meet the following requirements:\n\n- Resolution must be **lower than 1080P**.\n- Total frame count must be **no more than 360 frames**."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "MarkdownNote",
+      "pos": [
+        777.2746818000261,
+        -396.62224473359123
+      ],
+      "size": [
+        360.9000000000001,
+        161.29999999999995
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "About Upload Video",
+      "properties": {},
+      "widgets_values": [
+        "## Video Upload Required for Input\n\nWhen using a video as input, it must be uploaded before processing. There are three available methods:\n\n- Use the **Animon Upload Video** node to upload a video file directly.\n- Use the **Animon Upload Video (from Tensor)** node to convert and upload **ComfyUI IMAGES** as a video.\n- Use the **Animon Upload Video (from Bytes)** node to upload a video using the **Animon VIDEO_BYTES** input."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "AnimonUploadVideoFromFileNode",
+      "pos": [
+        820.404681800026,
+        -719.3422447335919
+      ],
+      "size": [
+        270,
+        276.5
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "animon_key",
+          "type": "ANIMON_KEY",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO_ID",
+          "type": "ANIMON_VIDEO_ID",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonUploadVideoFromFileNode"
+      },
+      "widgets_values": [
+        "train.mp4",
+        "image"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "AnimonUpscaleVideoNode",
+      "pos": [
+        1240.7446818000262,
+        -624.8322447335914
+      ],
+      "size": [
+        270,
+        102
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "animon_key",
+          "type": "ANIMON_KEY",
+          "link": 1
+        },
+        {
+          "name": "video_id",
+          "type": "ANIMON_VIDEO_ID",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "VIDEO_BYTES",
+          "type": "ANIMON_BYTES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonUpscaleVideoNode"
+      },
+      "widgets_values": [
+        "anisr",
+        "1080P"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 4,
+      "type": "SaveVideo",
+      "pos": [
+        1627.1446818000252,
+        -675.7322447335915
+      ],
+      "size": [
+        393.1999999999998,
+        396.6446601941747
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "AnimonSR",
+        "mp4",
+        "h264"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "AnimonKeyNode",
+      "pos": [
+        400.21468180002523,
+        -611.0422447335907
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ANIMON_KEY",
+          "type": "ANIMON_KEY",
+          "links": [
+            1,
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimonKeyNode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "ANIMON_KEY"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      1,
+      "ANIMON_VIDEO_ID"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "VIDEO"
+    ],
+    [
+      4,
+      1,
+      0,
+      2,
+      0,
+      "ANIMON_KEY"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "API Key",
+      "bounding": [
+        363.9146818000254,
+        -702.3422447335912,
+        344.5290909090909,
+        319.95545454545464
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Generate",
+      "bounding": [
+        1196.744681800026,
+        -719.9322447335911,
+        359.5999999999999,
+        394.9999999999999
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Upload Video",
+      "bounding": [
+        739.3046818000254,
+        -806.8422447335911,
+        420.9399999999998,
+        589.5299999999999
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Save Video",
+      "bounding": [
+        1592.744681800026,
+        -757.7322447335913,
+        455.9000000000001,
+        500.29999999999995
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": [
+        -271.83649998184455,
+        961.8904265517737
+      ]
+    },
+    "frontendVersion": "1.28.8",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
