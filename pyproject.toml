@@ -29,7 +29,7 @@ Documentation = "https://github.com/IamCreateAI/ComfyUI-Animon/wiki"
 "Bug Tracker" = "https://github.com/IamCreateAI/ComfyUI-Animon/issues"
 
 [tool.comfy]
-PublisherId = "AnimonAI"
+PublisherId = "aaronzws"
 DisplayName = "ComfyUI-Animon"
 Icon = ""
 includes = [] 
