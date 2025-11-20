@@ -8,11 +8,16 @@ We are actively working to bring more features and APIs to match the full capabi
 
 Currently, only **custom nodes** are supported. Support for **official ComfyUI API nodes** is in development and will be released soon.
 
+当然可以，以下是你提供内容的润色版本，保留原有结构并提升语言流畅度和专业度，使用 Markdown 格式输出：
+
+
 # 🚀 Quick Start
 
-> **Installation is manual for now**. Integration with **ComfyUI-Manager** is planned.
+## Installation
 
-## Installation Steps
+You can install this repository either by using `git clone` or via the [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager) (a fantastic project that makes managing custom nodes effortless).
+
+**Option 1: Git Clone**
 
 1. Clone this repository into the `custom_nodes` folder of your ComfyUI directory:
 
@@ -26,11 +31,21 @@ Currently, only **custom nodes** are supported. Support for **official ComfyUI A
    pip install -r requirements.txt
    ```
 
-3. Start or restart ComfyUI to load the new nodes.
+**Option 2: ComfyUI-Manager**
 
-4. Obtain your API key from the [Animon API Platform](https://www.animon.ai/).
+1. Make sure ComfyUI-Manager is up to date.
 
-5. Open one of the example workflows (e.g., `AnimonI2V`), enter your API key, and run the workflow.
+2. Open the **Custom Nodes Manager** and install the node as shown below:
+
+![comfyui_manager_install](https://github.com/user-attachments/assets/28ded1b9-c782-427b-8fdc-51af3a4ea56a)
+
+## How to Use
+
+1. Start or restart ComfyUI to load the newly installed nodes.
+
+2. Obtain your API key from the [Animon API Platform](https://www.animon.ai/).
+
+3. Open one of the example workflows (e.g., `AnimonI2V`), enter your API key, and run the workflow.
 
 
 # 🗂️ Workflow Examples
