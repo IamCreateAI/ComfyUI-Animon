@@ -1,7 +1,7 @@
 [project]
 name = "animon"
 description = "Animon integration for ComfyUI offering custom nodes for generating videos from images, interpolating between frames, and upscaling videos with API control."
-version = "0.8.0"
+version = "0.9.0"
 license = {file = "LICENSE"} 
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
@@ -29,7 +29,7 @@ Documentation = "https://github.com/IamCreateAI/ComfyUI-Animon/wiki"
 "Bug Tracker" = "https://github.com/IamCreateAI/ComfyUI-Animon/issues"
 
 [tool.comfy]
-PublisherId = "CreateAI"
+PublisherId = "AnimonAI"
 DisplayName = "ComfyUI-Animon"
 Icon = ""
 includes = [] 
