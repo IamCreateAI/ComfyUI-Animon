@@ -8,8 +8,6 @@ We are actively working to bring more features and APIs to match the full capabi
 
 Currently, only **custom nodes** are supported. Support for **official ComfyUI API nodes** is in development and will be released soon.
 
-当然可以，以下是你提供内容的润色版本，保留原有结构并提升语言流畅度和专业度，使用 Markdown 格式输出：
-
 
 # 🚀 Quick Start
 

@@ -34,4 +34,4 @@ DisplayName = "ComfyUI-Animon"
 Icon = ""
 includes = [] 
 # "requires-comfyui" = ">=1.0.0"  # ComfyUI version compatibility
-
+# 
